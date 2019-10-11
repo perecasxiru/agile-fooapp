@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Product edit
+{% endblock title %}
+
+{% block main %}
+    <br><br>
+    <form action="{% url 'product_edit' prod.prod_id %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
+{% endblock main %}

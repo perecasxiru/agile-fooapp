@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Product create
+{% endblock title %}
+
+{% block main %}
+    <br><br>
+    <form action="{% url 'product_create' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <input type="submit" value="Submit">
+    </form>
+{% endblock main %}
+
