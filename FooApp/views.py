@@ -86,3 +86,4 @@ def product_delete(request, prod_id):
 
     response = HttpResponse('404')
     return response
+
