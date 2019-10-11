@@ -21,7 +21,7 @@
                     headers: {"X-CSRFToken": csrftoken},
                     datatype: 'text',
                     success: function (response) {
-                        if (response==="OK") {
+                        if (response === "OK") {
                             window.location = "{% url 'products' %}";
                         } else {
                             alert('Delete failed.');
@@ -29,9 +29,9 @@
                         return false;
                     },
                     error: function () {
-                        
+
                     }
-                 });
+                });
                 return false;
             });
         });
@@ -40,22 +40,30 @@
 {% endblock extra_head %}
 
 {% block main %}
-    <div class="row">
-        <div class="span12">
-            <h2 style="color:orangered">
-                {{ product.name }}
-            </h2>
-            <p>{{ product.description }}</p>
-            <p>Price: {{ product.price }} €</p>
-        </div>
-
-        <div class="edit-controls">
-            <i class="icon-pencil"></i>
-            <a href="{% url 'product_edit' product.prod_id %}">Edit</a>
-            <span class="inline-pad"></span>
-            <i class="icon-trash"></i>
-            <a class="product-delete-link" href="#"
-               data-delete-url="{% url 'product_delete' product.prod_id %}">Delete</a>
+    <br><br>
+    <div class="container">
+        <div class="row">
+            <div class="span4">
+                <img src="https://picsum.photos/seed/{{ product.prod_id }}/800" alt="">
+            </div>
+            <div class="span8">
+                <h2 style="color:orangered">
+                    {{ product.name }}
+                </h2>
+                <br>
+                <p>{{ product.description }}</p>
+                <br>
+                <p>Price: {{ product.price }} €</p>
+                <br>
+                <div class="edit-controls">
+                    <i class="icon-pencil"></i>
+                    <a href="{% url 'product_edit' product.prod_id %}">Edit</a>
+                    <span class="inline-pad"></span>
+                    <i class="icon-trash"></i>
+                    <a class="product-delete-link" href="#"
+                       data-delete-url="{% url 'product_delete' product.prod_id %}">Delete</a>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock main %}
