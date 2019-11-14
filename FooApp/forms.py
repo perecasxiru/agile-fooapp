@@ -15,7 +15,7 @@ class ProductForm(forms.ModelForm):
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField()
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'User: test, Pass: 1234'}))
     password = forms.CharField(widget=forms.PasswordInput)
 
     class Meta:
